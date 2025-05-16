@@ -2,14 +2,20 @@ import './App.css'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import Home from './pages/home/Home'
+import { SidebarProvider } from './context/SidebarContext'
+import Sidebar from './components/Sidebar'
 
 function App() {
 
   return (
     <>
-      <Navbar/>
-      <Home/>
-      <Footer/>
+      <SidebarProvider>
+        <Navbar />
+        <Sidebar />
+        <Home />
+      </SidebarProvider>
+      <Footer />
+
     </>
   )
 }

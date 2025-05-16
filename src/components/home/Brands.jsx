@@ -10,7 +10,7 @@ import brand8 from '../../assets/home/brand8.webp'
 import brand9 from '../../assets/home/brand9.webp'
 import brand10 from '../../assets/home/brand10.webp'
 
-const Brands = ({itemClassName = "", containerClassName = "" }) => {
+const Brands = ({ itemClassName = "", containerClassName = "", iconSize = "" }) => {
     const brands = [
         { src: brand1, alt: 'Brand' },
         { src: brand2, alt: 'Brand' },
@@ -33,7 +33,7 @@ const Brands = ({itemClassName = "", containerClassName = "" }) => {
                     <img
                         src={brand.src}
                         alt={brand.alt}
-                        className="w-[75%] object-contain"
+                        className={` object-contain cursor-pointer hover:scale-110 transition ${iconSize}`}
                     />
                 </div>
             ))}

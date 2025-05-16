@@ -18,7 +18,7 @@ const Home = () => {
 
             <div className='pt-20 max-w-7xl mx-auto px-4'>
                 <h2 className="text-5xl font-bold text-center mb-10 text-Myprimary ">Brands</h2>
-                <Brands itemClassName="w-[45%] sm:w-[30%] md:w-[22%] lg:w-[18%]" containerClassName="justify-between gap-6"
+                <Brands itemClassName="w-[45%] sm:w-[30%] md:w-[22%] lg:w-[18%]" containerClassName="justify-between gap-6" iconSize='w-[75%]'
                 />
             </div>
             <div className='pt-20 max-w-7xl mx-auto px-4'>
