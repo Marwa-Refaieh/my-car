@@ -14,7 +14,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="bg-Mybackground shadow-lg fixed top-0 z-20 shadow-white/10 w-full">
+            <nav className="bg-Mybackground shadow-lg fixed top-0 z-40 shadow-white/10 w-full">
                 <div className="max-w-7xl mx-auto px-4 py-1 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16 items-center">
 
@@ -37,16 +37,21 @@ const Navbar = () => {
                             />
                         </div>
 
-
-                        {/* زر اللغة + زر القائمة الجانبية */}
                         <div className="flex items-center space-x-4">
-                            <button>
-                                <FaGlobe size={20} className="text-white hover:text-Myprimary transition" />
-                            </button>
+                            <a
+                                href='#'
+                                className='w-20 border border-white rounded-md py-1 text-center hover:shadow-[0_0_10px_#d6cb21] hover:border-Myprimary outline-none transition hover:text-Myprimary'
+                            >
+                                Login
+                            </a>
+                            <a
+                                href='#'
+                                className='w-20 border border-white rounded-md py-1 text-center hover:shadow-[0_0_10px_#d6cb21] hover:border-Myprimary outline-none transition hover:text-Myprimary'
+                            >
+                                Sign Up
+                            </a>
                             <button onClick={toggleSidebar} className="p-2 text-gray-700 hover:text-Myprimary transition text-2xl">
-                                {/* <FaBars size={24} /> */}
                                 <FiAlignJustify size={24} />
-
                             </button>
                         </div>
 

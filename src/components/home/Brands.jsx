@@ -10,7 +10,7 @@ import brand8 from '../../assets/home/brand8.webp'
 import brand9 from '../../assets/home/brand9.webp'
 import brand10 from '../../assets/home/brand10.webp'
 
-const Brands = () => {
+const Brands = ({itemClassName = "", containerClassName = "" }) => {
     const brands = [
         { src: brand1, alt: 'Brand' },
         { src: brand2, alt: 'Brand' },
@@ -24,23 +24,20 @@ const Brands = () => {
         { src: brand10, alt: 'Brand' },
     ];
     return (
-        <section className="pt-20">
-            <div className="max-w-7xl mx-auto px-4">
-                <h2 className="text-5xl font-bold text-center mb-10 text-Myprimary">Brands</h2>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                    {brands.map((brand, index) => (
-                        <div key={index} className="flex items-center justify-center p-4">
-                            <img
-                                src={brand.src}
-                                alt={brand.alt}
-                                className="w-[75%] object-contain"
-                            />
-                        </div>
-                    ))}
+        <div className={`flex flex-wrap items-center ${containerClassName}`}>
+            {brands.map((brand, index) => (
+                <div
+                    key={index}
+                    className={`p-4 flex items-center justify-center ${itemClassName}`}
+                >
+                    <img
+                        src={brand.src}
+                        alt={brand.alt}
+                        className="w-[75%] object-contain"
+                    />
                 </div>
-            </div>
-        </section>
+            ))}
+        </div>
     );
 }
 

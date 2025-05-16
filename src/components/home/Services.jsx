@@ -2,6 +2,7 @@ import React from 'react';
 import buy from '../../assets/home/buy.png'
 import sell from '../../assets/home/sell.png'
 import rent from '../../assets/home/rent.png'
+import Button from '../Button';
 
 const Services = () => {
     const images = [
@@ -34,9 +35,7 @@ const Services = () => {
                             className="w-full object-cover object-top"
                         />
                         <div className="p-4 w-full flex justify-center">
-                            <button className="bg-Myprimary text-black text-2xl mt-3 uppercase font-bold px-10 py-1 rounded-full hover:bg-primaryHover transition duration-300">
-                                {image.title}
-                            </button>
+                            <Button title={image.title}/>
                         </div>
                     </div>
                 ))}

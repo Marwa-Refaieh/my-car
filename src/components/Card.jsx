@@ -9,12 +9,11 @@ const Card = () => {
     const cards = Array(6).fill({});
     return (
         <div className="w-full mx-auto">
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 py-10">
+            <div className="flex flex-wrap justify-center gap-6 px-4 py-10">
                 {cards.map((_, index) => (
                     <div
                         key={index}
-                        className="border-[1px] border-Myprimary rounded-3xl p-4 shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
+                        className="w-full sm:w-[47%] lg:w-[30%] border-[1px] border-Myprimary rounded-3xl p-4 shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
                     >
                         <img
                             src={car}
@@ -54,7 +53,6 @@ const Card = () => {
                     </div>
                 ))}
             </div>
-
         </div>
 
     );
