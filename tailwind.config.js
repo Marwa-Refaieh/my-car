@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: { max: '400px' }, 
+      },
       colors: {
         primary: {
           DEFAULT: 'hsl(var(--primary))',
@@ -19,8 +22,9 @@ export default {
         gray: "#a0a1a1",
         icon: "#a1a9b1",
         Mycard: "#363434",
+        MyOption: "#141414",
         Mybackground: "#040403",
-
+        backgroundGray: "#232323",
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'

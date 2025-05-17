@@ -2,11 +2,34 @@ import { FaTimes } from 'react-icons/fa';
 import { useSidebar } from '../context/SidebarContext';
 import sort from '../assets/sort.png';
 import car from '../assets/car.png';
+import fuel from '../assets/fuel.png';
+import color from '../assets/color.png';
+import Star from '../assets/Star.png';
+import location from '../assets/location.png';
+import transmission from '../assets/transmission.png';
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group"
 import Brands from './home/Brands';
 import { useEffect } from "react";
+import YearRangeSlider from './filters/SpeedRangeSlider';
+import SpeedRangeSlider from './filters/YearRangeSlider';
+import Button from './filters/Button';
+import BodyTypes from './filters/BodyTypes';
+import compact from '../assets/compact.png';
+import crossover from '../assets/crossover.png';
+import sport from '../assets/sport.png';
+import suv from '../assets/suv.png';
+import ColorPicker from './filters/ColorPicker';
+import HorsepowerSlider from './filters/HorsepowerSlider';
+import PriceSlider from './filters/PriceSlider';
+import Button2 from './Button';
 
 const Sidebar = () => {
+    const bodyTypeData = [
+        { src: compact, name: "compact" },
+        { src: crossover, name: "crossover" },
+        { src: sport, name: "sport" },
+        { src: suv, name: "suv" },
+    ]
     const { sidebarOpen, toggleSidebar } = useSidebar();
     useEffect(() => {
         if (sidebarOpen) {
@@ -19,10 +42,11 @@ const Sidebar = () => {
             document.body.style.overflow = '';
         };
     }, [sidebarOpen]);
+
     return (
         <>
             <div
-                className={`sidebar-scroll fixed top-0 right-0 h-full w-96 bg-[#121212] text-white shadow-lg transform transition-transform duration-300 z-50 overflow-y-auto ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                className={`sidebar-scroll overflow-hidden fixed top-0 right-0 h-full w-96 bg-[#121212] text-white shadow-lg transform transition-transform duration-300 z-50 overflow-y-auto ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}>
 
                 <div className="p-4 flex justify-between items-center border-b border-gray-700">
                     <h2 className="text-xl font-bold">Filters</h2>
@@ -34,6 +58,7 @@ const Sidebar = () => {
                     </button>
                 </div>
                 <div className="p-4 space-y-4">
+
                     {/* Sort */}
                     <div className='w-full flex flex-col border-b border-white/35 pb-3'>
                         <div className='flex items-center gap-2'>
@@ -126,11 +151,124 @@ const Sidebar = () => {
                     {/* Year */}
                     <div className='w-full flex flex-col border-b border-white/35 pb-3'>
                         <div className='flex items-center gap-2'>
-                            <div className='w-6 bg-Mycard rounded-full p-1'>
-                                <img src={sort} className='w-full h-full' />
-                            </div>
-                            <p className='text-1xl'>Year</p>
+                            <YearRangeSlider />
                         </div>
+                    </div>
+
+                    {/* Speed */}
+                    <div className='w-full flex flex-col border-b border-white/35 pb-3'>
+                        <div className='flex items-center gap-2'>
+                            <SpeedRangeSlider />
+                        </div>
+                    </div>
+
+                    {/* Transmission */}
+                    <div className='w-full flex flex-col border-b border-white/35 pb-3'>
+                        <div className='flex items-center gap-2'>
+                            <div className='w-6 bg-Mycard rounded-full p-1'>
+                                <img src={transmission} className='w-full h-full' />
+                            </div>
+                            <p className='text-1xl'>Transmission</p>
+                        </div>
+                        <div className='pt-5 flex flex-wrap gap-4'>
+                            <Button title="Automatic"/>
+                            <Button title="Manual" />
+
+                        </div>
+                    </div>
+
+                    {/* Fuel Type */}
+                    <div className='w-full flex flex-col border-b border-white/35 pb-3'>
+                        <div className='flex items-center gap-2'>
+                            <div className='w-6 bg-Mycard rounded-full p-1'>
+                                <img src={fuel} className='w-full h-full' />
+                            </div>
+                            <p className='text-1xl'>Fuel Type</p>
+                        </div>
+                        <div className='pt-5 flex flex-wrap gap-4'>
+                            <Button title="Petrol" />
+                            <Button title="Diesel" />
+                            <Button title="Electric" />
+                        </div>
+                    </div>
+
+                    {/* Body Types */}
+                    <div className='w-full flex flex-col border-b border-white/35 pb-3'>
+                        <div className='flex items-center gap-2'>
+                            <div className='w-6 bg-Mycard rounded-full p-1'>
+                                <img src={car} className='w-full h-full' />
+                            </div>
+                            <p className='text-1xl'>Body Types</p>
+                        </div>
+                        <div className='pt-5 flex flex-wrap gap-4'>
+                            {
+                                bodyTypeData.map((item, index) => {
+                                    return (
+                                        <BodyTypes key={index} src={item.src} name={item.name} />
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+
+                    {/* Body Color */}
+                    <div className='w-full flex flex-col border-b border-white/35 pb-3'>
+                        <div className='flex items-center gap-2'>
+                            <div className='w-6 bg-Mycard rounded-full p-1'>
+                                <img src={color} className='w-full h-full' />
+                            </div>
+                            <p className='text-1xl'>Body Color</p>
+                        </div>
+                        <div className='pt-5 flex flex-wrap gap-4'>
+                            <ColorPicker />
+                        </div>
+                    </div>
+
+                    {/* Horsepower */}
+                    <div className='w-full flex flex-col border-b border-white/35 pb-3'>
+                        <div className='flex items-center gap-2'>
+                            <HorsepowerSlider />
+                        </div>
+                    </div>
+
+                    {/* Features */}
+                    <div className='w-full flex flex-col border-b border-white/35 pb-3'>
+                        <div className='flex items-center gap-2'>
+                            <div className='w-6 bg-Mycard rounded-full p-1'>
+                                <img src={Star} className='w-full h-full' />
+                            </div>
+                            <p className='text-1xl'>Features</p>
+                        </div>
+                        <div className='pt-5 flex flex-wrap gap-4'>
+                            <Button title="Navigation" />
+                            <Button title="Sun Roof" />
+                            <Button title="2 doors" />
+                            <Button title="7 seater" />
+                        </div>
+                    </div>
+
+                    {/* Price */}
+                    <div className='w-full flex flex-col border-b border-white/35 pb-3'>
+                        <div className='flex items-center gap-2'>
+                            <PriceSlider />
+                        </div>
+                    </div>
+
+                    {/* City */}
+                    <div className='w-full flex flex-col border-b border-white/35 pb-3'>
+                        <div className='flex items-center gap-2'>
+                            <div className='w-6 bg-Mycard rounded-full p-1'>
+                                <img src={location} className='w-full h-full' />
+                            </div>
+                            <p className='text-1xl'>City</p>
+                        </div>
+                        <div className='pt-5 flex flex-wrap gap-4'>
+                            <Button title="Damas" />
+                        </div>
+                    </div>
+
+                    <div className='flex justify-center py-3'>
+                        <Button2 title="Show Results" />
                     </div>
                 </div>
             </div>

@@ -7,7 +7,6 @@ import HeroImage from '../../components/home/HeroImage';
 import Choose from '../../components/home/Choose';
 import Blog from '../../components/home/Blog';
 import Popular from '@/components/home/Popular';
-
 const Home = () => {
     return (
         <>
@@ -39,5 +38,6 @@ const Home = () => {
         </>
     );
 }
+
 
 export default Home;
