@@ -11,14 +11,11 @@ import CarData from "@/components/carDetails/carData";
 import CarTabs from "@/components/carDetails/carTabs";
 
 export default function CarDetails() {
-    // const { id } = useParams();
 
     const productImages = [car1, car2, car3, car4];
     return (
         <>
-        <div className="md:block hidden">
             <Hero />
-        </div>
             <div className='max-w-7xl mx-auto px-4 pt-28 md:pt-16'>
                 <div className="flex flex-col items-center lg:items-start gap-10 lg:gap-0 lg:flex-row lg:justify-between">
                     <div className="w-[90%] md:w-[70%] lg:w-[50%]">

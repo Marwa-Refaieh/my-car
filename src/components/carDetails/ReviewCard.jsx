@@ -3,6 +3,8 @@ import { Star } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { useState } from 'react';
+import CommentModal from '../CommentModal';
+import StarRatings from 'react-star-ratings';
 
 const ReviewCard = () => {
     const [open, setOpen] = useState(false);
@@ -30,11 +32,13 @@ const ReviewCard = () => {
                         </div>
 
                         <div className="flex items-center gap-1 mt-2 sm:mt-3">
-                            <Star className="w-4 h-4 fill-yellow-500 stroke-yellow-500" />
-                            <Star className="w-4 h-4 fill-yellow-500 stroke-yellow-500" />
-                            <Star className="w-4 h-4 fill-yellow-500 stroke-yellow-500" />
-                            <Star className="w-4 h-4 stroke-zinc-500" />
-                            <Star className="w-4 h-4 stroke-zinc-500" />
+                            <StarRatings
+                                rating={4.5}
+                                starRatedColor="#facc15"
+                                numberOfStars={5}
+                                starDimension="16px"
+                                starSpacing="2px"
+                            />
                         </div>
                     </div>
                 </div>
@@ -52,30 +56,13 @@ const ReviewCard = () => {
                 Add comment
             </button>
 
-            <Dialog open={open} onOpenChange={setOpen}>
-                <DialogContent className="sm:max-w-md bg-[#121212] border-Mycard ">
-                    <DialogHeader>
-                        <DialogTitle>Add a Comment</DialogTitle>
-                    </DialogHeader>
-
-                    <div className="mt-4">
-                        <textarea
-                            value={comment}
-                            onChange={(e) => setComment(e.target.value)}
-                            rows="4"
-                            className="w-full border bg-transparent rounded-md p-3 text-sm focus:outline-none border-Mycard"
-                            placeholder="Write your comment here..."
-                        ></textarea>
-                    </div>
-
-                    <DialogFooter className="mt-4 flex justify-end gap-2">
-                        <Button className="text-black" variant="outline" onClick={() => setOpen(false)}>
-                            Cancel
-                        </Button>
-                        <Button onClick={handleSubmit} className="bg-Myprimary text-black hover:bg-primaryHover">Submit</Button>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog>
+            <CommentModal
+                open={open}
+                setOpen={setOpen}
+                comment={comment}
+                setComment={setComment}
+                onSubmit={handleSubmit}
+            />
 
         </div>
 
